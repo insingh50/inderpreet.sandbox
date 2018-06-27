@@ -135,6 +135,7 @@ resumeImg.addEventListener("click", ()=>{
     });
 });
 githubImg.addEventListener("click", ()=>{
+    $('#navbarNav').transition({opacity: 0}, 750);
     $('#githubIframe').fadeIn(750);
     $('body').addClass('inactive-link');
     $('#githubIframe').addClass('normal-link');
@@ -145,6 +146,7 @@ githubImg.addEventListener("click", ()=>{
         if (!container.is(e.target) && container.has(e.target).length === 0) 
         {
             container.fadeOut(500);
+            setTimeout(() => $('#navbarNav').transition({opacity: 1}, 750), 300);
             $('body').removeClass('inactive-link');
             $(document).unbind('mouseup');
         }

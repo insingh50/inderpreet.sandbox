@@ -351,40 +351,14 @@ img.blacknwhite:hover{
   overflow-y: hidden;
   border: solid black 2px;
   border-radius: 0px;
-  box-shadow: 0 0 0 100vmax rgba(20,20,20,.8);
+  box-shadow: 0 0 0 100vmax rgba(0,0,0,.8);
   z-index: 9999;
 }
-#resumeIframe{
-}
-::-webkit-scrollbar:enabled{
-  width: 5px; height: 5px;
-}
-
-#resumeIframe{
-  scrollbar-face-color: #367CD2;
-  scrollbar-shadow-color: #FFFFFF;
-  scrollbar-highlight-color: #FFFFFF;
-  scrollbar-3dlight-color: #FFFFFF;
-  scrollbar-darkshadow-color: #FFFFFF;
-  scrollbar-track-color: #FFFFFF;
-  scrollbar-arrow-color: #FFFFFF;
-}
-/* Let's get this party started */
-#resumeIframe::-webkit-scrollbar {
-  width: 12px;
-}
-/* Track */
-#resumeIframe::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-}
-/* Handle */
-#resumeIframe::-webkit-scrollbar-thumb {
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  background: rgba(255,0,0,0.8); 
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+#githubIframe{
+  top: 10vh;
+  left: 30vw;
+  width: 40%;
+  height: 80%;
 }
 
 /*

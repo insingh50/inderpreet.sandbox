@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inderpreet's Github</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/github.css">
+</head>
+<body>
+    <div id="gitstuff" class="container-fluid"></div>
+
+    <script>
+        var HttpClient = function(){
+            this.get = function(aUrl, aCallback){
+                var anHttpRequest = new XMLHttpRequest();
+                anHttpRequest.onreadystatechange = function(){
+                    console.log('github api request made');
+                    if(anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                        aCallback(anHttpRequest.responseText);
+                }
+
+                anHttpRequest.open("GET", aUrl, true);
+                anHttpRequest.send(null);
+            }
+        }
+
+        const GIT_API_URL = 'https://api.github.com';
+        var reposArray;
+
+        var client = new HttpClient();
+
+        client.get(GIT_API_URL + '/users/insingh50/repos', function(response){
+            reposArray = JSON.parse(response);
+            
+            var mainDiv = document.getElementById('gitstuff');
+
+            var i = 0;
+
+            reposArray.forEach(repo => {
+                if (i++ % 2 == 0){
+                    var row = document.createElement("div");
+                    row.className = 'row';
+                    mainDiv.appendChild(row);
+                }
+
+                var lastRow = document.getElementById('gitstuff').lastChild;
+
+                var column = document.createElement("div");
+                column.className = 'col';
+                lastRow.appendChild(column);
+
+                var repoCard = document.createElement("div");
+                repoCard.className = 'card';
+
+                var cardHeader = document.createElement("h5");
+                cardHeader.className = 'card-header';
+                cardHeader.className += ' text-dark';
+                cardHeader.innerText = repo.name;
+                repoCard.appendChild(cardHeader);
+                
+                var cardBody = document.createElement("div");
+                cardBody.className = 'card-body';
+                repoCard.appendChild(cardBody);
+                
+                // var cardTitle = document.createElement("h5");
+                // cardTitle.className = 'card-title';
+                // cardBody.appendChild(cardTitle);
+
+                var cardText = document.createElement("p");
+                cardText.className = 'card-text';
+                cardText.innerText = repo.description;
+                cardBody.appendChild(cardText);
+
+                var cardLink = document.createElement("a");
+                // cardLink.className = ("btn-dark");
+                cardLink.href = repo.html_url;
+                cardLink.innerText = "See the repo";
+                cardBody.appendChild(cardLink);
+
+                column.appendChild(repoCard);
+            });
+        });
+    </script>
+</body>
+</html>
