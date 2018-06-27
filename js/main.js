@@ -74,12 +74,10 @@ function homeClicked(){
 
 function mediaClicked(){
 	if(!$('#media-group').hasClass("current")){
-        $('li>a').not('[href="javascript:homeClicked()"]').transition({scale:1}, 1300);
-        $('[href="javascript:homeClicked()"]').transition({scale:1.2}, 1300, 'easeInOutBack');
-		$('section.current').fadeOut(500).delay(500);
-		$('section.current').removeClass("current");
-		$('#media-group').delay(500).fadeIn(500);
-		$('#media-group').addClass("current");
+		// $('section.current').fadeOut(500).delay(500);
+		// $('section.current').removeClass("current");
+		// $('#media-group').delay(500).fadeIn(500);
+		// $('#media-group').addClass("current");
 	}
 }
 
@@ -101,9 +99,20 @@ function workClicked(){
     }
 }
 
+var mini;
 $('[href="javascript:mediaClicked()"]').on({
-    mousedown: () => {$('[href="javascript:mediaClicked()"]').transition({scale:0.9}, 500, 'ease');},
-    mouseup: () => {$('[href="javascript:mediaClicked()"]').transition({scale:1.0}, 500, 'ease');}
+    mousedown: () => {
+        {
+            $('[href="javascript:mediaClicked()"]').transition({scale:0.9}, 100, 'linear');
+            mini = false;
+        }
+    },
+    mouseup: () => {
+        {
+            $('[href="javascript:mediaClicked()"]').transition({scale:1}, 200, 'linear');
+            mini = false;
+        }
+    }
 });
 
 $('.link').on({
@@ -169,13 +178,13 @@ linkedinImg.addEventListener("click", ()=>{
     });
 });
 
-var pdf = new PDFObject({
-    url: "../files/Singh-Resume.pdf",
-    id: "resumePdfRendered",
-    pdfOpenParams: {
-        view: "FitH"
-    }
-}).embed("resumePdfViewer");
+// var pdf = new PDFObject({
+//     url: "../files/Singh-Resume.pdf",
+//     id: "resumePdfRendered",
+//     pdfOpenParams: {
+//         view: "FitH"
+//     }
+// }).embed("resumePdfViewer");
 
 // if(typeof(localStorage.setVisit)=='undefind' || localStorage.setVisit==''){
 // 	localStorage.setVisit='yes';
