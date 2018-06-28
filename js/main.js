@@ -183,3 +183,5 @@ linkedinImg.addEventListener("click", ()=>{
         }
     });
 });
+
+document.head.title = 'Inder | Beta';
