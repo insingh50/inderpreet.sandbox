@@ -4,15 +4,16 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title>Inder | Home</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+		<title>Inder | Beta</title>
+		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"> -->
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/main.css">
+		<link rel="preload" href="./iframes/github.html" as="document">
 
-		<script src="./js/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-		<!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script> -->
-		<script src="./js/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-		<script src="./js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+		<script src="./js/popper.min.js"></script>
+		<script src="./js/bootstrap.min.js"></script>
 		<script src="./js/jquery.transit.min.js"></script>
 		<script src="./js/pdfobject.min.js"></script>
 		<!-- <script>document.documentElement.className = document.documentElement.className.replace('no-js','js');</script>-->
@@ -29,7 +30,7 @@
 							<a href="javascript:homeClicked()" class="nav-link working-link">Home</a>
 						</li>
 						<li class="nav-item h3 fadein-delay">
-							<a href="javascript:mediaClicked()" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="<h5 style='text-transform: lowercase; color: #fff'>coming soon</h5>" style="cursor: default;">Media</a>
+							<a href="javascript:mediaClicked()" class="nav-link working-link">Media</a>
 						</li>
 						<li class="nav-item h3 fadein-delay">
 							<a href="javascript:linksClicked()" class="nav-link working-link">Links</a>
@@ -52,6 +53,14 @@
 			</svg>
 		</div>
 
+		<section id="media-group" style="display: none;">
+			<div class="">
+				<div class="d-flex justify-content-around container-fluid" style="height: 55vh;">
+						<iframe id="soundcloud-frame" class="media-frame" width="50%" height="100%" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/89416732&color=%23222222&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=false"></iframe>
+				</div>
+			</div>
+		</section>
+		
 		<section id="me" class="mr-auto current">
 			<div class="who jumbotron mr-5">
 				<div class="container">
@@ -96,11 +105,11 @@
 		</section>
 
 		<section id="links-group" style="display: none;">
-			<div class="container-fluid d-flex">
+			<div class="container-fluid d-none d-md-flex">
 				<div id="links-row" class="row text-center">
 					<div class="col-md-4 bar">
 						<p class="h3 text-white mb-4">Résumé</p>
-						<a id="resume" class="h3 text-white link" href="files/Inderpreet-Resume.pdf" target="_blank">PDF <span style="font-weight: lighter">2MB</span></a>
+						<a id="resume" class="h3 text-white link" href="files/Singh-Resume.pdf" target="_blank">PDF <span style="font-weight: lighter">2MB</span></a>
 					</div>
 					<div class="col-md-4 bar">
 						<p class="h3 text-white mb-4">Github</p>
@@ -122,6 +131,17 @@
 					<div class="col-md-4">
 						<img id="linkedinImg" class="img-fluid linkimg" src="images/linkedin.png" alt="github thumbnail">
 					</div>
+				</div>
+			</div>
+			<div class="container d-sm-block d-md-none">
+				<div class="row justify-content-center">
+					<p class="h3 text-white mb-4 d-block">Résumé</p>
+				</div>
+				<div class="row justify-content-center">
+					<a id="resume" class="h3 text-white link" href="files/Singh-Resume.pdf" target="_blank">PDF <span style="font-weight: lighter">2MB</span></a>
+				</div>
+				<div class="row justify-content-center">
+					<img id="resumeImg2" class="img-fluid linkimg" src="images/resume.png" alt="singh resume thumbnail" width="">
 				</div>
 			</div>
 			<div id="resumeIframe" class="linkIframe">

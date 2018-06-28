@@ -225,7 +225,7 @@ img.blacknwhite:hover{
   -moz-z-index: 4;
   -ms-z-index: 4;
   z-index: 4;
-  max-width: 300px;
+  max-width: 400px;
 }
 #soundcloud-frame{
   filter: grayscale(100%) blur(2px);
@@ -319,6 +319,25 @@ img.blacknwhite:hover{
   transition: all .6s ease;
 }
 .linkimg:hover{
+  -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  filter: grayscale(0%);
+  cursor: pointer;
+}
+.linkimg2{
+  height: 10%;
+  max-width: 450px;
+  position: relative;
+  padding: 0;
+  bottom: -30px;
+  display: none;
+  margin: 0;
+  -webkit-filter: grayscale(50%);
+  -moz-filter: grayscale(50%);
+  filter: grayscale(50%);
+  transition: all .6s ease;
+}
+.linkimg2:hover{
   -webkit-filter: grayscale(0%);
   -moz-filter: grayscale(0%);
   filter: grayscale(0%);
