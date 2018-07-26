@@ -5,7 +5,7 @@ $(function() {
 // 	$('#smokeImg0, #smokeImg1').css("left", '0px');
 // 	$('.fadein-delay').css("opacity", 1);
 // }
-    $('[data-toggle="tooltip"]').tooltip({html:true, trigger:"hover"});
+    // $('[data-toggle="tooltip"]').tooltip({html:true, trigger:"hover"});
 
     var visited = document.cookie.replace(/(?:(?:^|.*;\s*)visited\s*\=\s*([^;]*).*$)|^.*$/, "$1");
     
@@ -27,7 +27,7 @@ $(function() {
         }, 650);
         setTimeout(() => {
             $('[href="javascript:homeClicked()"]').addClass("current-nav", 200);
-        }, 1500)
+        }, 1300);
     }
     else if (!$("*").hasClass("STOP-ANIM")){
         $('.who').fadeIn(1700);
@@ -47,7 +47,7 @@ $(function() {
         }, 2100);
         setTimeout(() => {
             $('[href="javascript:homeClicked()"]').addClass("current-nav", 200);
-        }, 3750)
+        }, 3350)
     } 
     else{
         $('.who').show();
@@ -74,10 +74,10 @@ function homeClicked(){
 
 function mediaClicked(){
 	if(!$('#media-group').hasClass("current")){
-		// $('section.current').fadeOut(500).delay(500);
-		// $('section.current').removeClass("current");
-		// $('#media-group').delay(500).fadeIn(500);
-		// $('#media-group').addClass("current");
+		$('section.current').fadeOut(500).delay(500).removeClass("current");
+        $('a.current-nav').removeClass('current-nav');
+        $('#media-group').delay(500).fadeIn(500).addClass("current");
+        $('[href="javascript:mediaClicked()"]').addClass("current-nav");
 	}
 }
 
@@ -99,21 +99,22 @@ function workClicked(){
     }
 }
 
-var mini;
-$('[href="javascript:mediaClicked()"]').on({
-    mousedown: () => {
-        {
-            $('[href="javascript:mediaClicked()"]').transition({scale:0.9}, 100, 'linear');
-            mini = false;
-        }
-    },
-    mouseup: () => {
-        {
-            $('[href="javascript:mediaClicked()"]').transition({scale:1}, 200, 'linear');
-            mini = false;
-        }
-    }
-});
+// MEDIA COMING SOON ANIM
+// var mini;
+// $('[href="javascript:mediaClicked()"]').on({
+//     mousedown: () => {
+//         {
+//             $('[href="javascript:mediaClicked()"]').transition({scale:0.9}, 100, 'linear');
+//             mini = false;
+//         }
+//     },
+//     mouseup: () => {
+//         {
+//             $('[href="javascript:mediaClicked()"]').transition({scale:1}, 200, 'linear');
+//             mini = false;
+//         }
+//     }
+// });
 
 $('.link').on({
     mouseenter: () => {$('#'+$(this).attr('id')+'Img').addClass('blacknwhiteLinkImg', 6000, "ease");},
@@ -127,7 +128,9 @@ $('#soundcloud-frame').on({
 
 var resumeImg = document.getElementById("resumeImg");
 
+/* LINK IMAGES LISTENERS */
 resumeImg.addEventListener("click", ()=>{
+    $('#navbarNav').transition({opacity: 0}, 750);
     $('#resumeIframe').fadeIn(750);
     $('body').addClass('inactive-link');
     $('#resumeIframe').addClass('normal-link');
@@ -137,7 +140,8 @@ resumeImg.addEventListener("click", ()=>{
         // if the target of the click isn't the container nor a descendant of the container
         if (!container.is(e.target) && container.has(e.target).length === 0) 
         {
-            container.fadeOut(500);
+            container.fadeOut(600);
+            setTimeout(() => $('#navbarNav').transition({opacity: 1}, 750), 200);
             $('body').removeClass('inactive-link');
             $(document).unbind('mouseup');
         }
@@ -145,7 +149,7 @@ resumeImg.addEventListener("click", ()=>{
 });
 githubImg.addEventListener("click", ()=>{
     $('#navbarNav').transition({opacity: 0}, 750);
-    $('#githubIframe').fadeIn(750);
+    $('#githubIframe').fadeIn(600);
     $('body').addClass('inactive-link');
     $('#githubIframe').addClass('normal-link');
     $(document).mouseup(function(e){
@@ -155,14 +159,15 @@ githubImg.addEventListener("click", ()=>{
         if (!container.is(e.target) && container.has(e.target).length === 0) 
         {
             container.fadeOut(500);
-            setTimeout(() => $('#navbarNav').transition({opacity: 1}, 750), 300);
+            setTimeout(() => $('#navbarNav').transition({opacity: 1}, 750), 200);
             $('body').removeClass('inactive-link');
             $(document).unbind('mouseup');
         }
     });
 });
 linkedinImg.addEventListener("click", ()=>{
-    $('#linkedinIframe').fadeIn(750);
+    $('#navbarNav').transition({opacity: 0}, 750);
+    $('#linkedinIframe').fadeIn(600);
     $('body').addClass('inactive-link');
     $('#linkedinIframe').addClass('normal-link');
     $(document).mouseup(function(e){
@@ -172,20 +177,11 @@ linkedinImg.addEventListener("click", ()=>{
         if (!container.is(e.target) && container.has(e.target).length === 0) 
         {
             container.fadeOut(500);
+            setTimeout(() => $('#navbarNav').transition({opacity: 1}, 750), 200);
             $('body').removeClass('inactive-link');
             $(document).unbind('mouseup');
         }
     });
 });
 
-// var pdf = new PDFObject({
-//     url: "../files/Singh-Resume.pdf",
-//     id: "resumePdfRendered",
-//     pdfOpenParams: {
-//         view: "FitH"
-//     }
-// }).embed("resumePdfViewer");
-
-// if(typeof(localStorage.setVisit)=='undefind' || localStorage.setVisit==''){
-// 	localStorage.setVisit='yes';
-// }
+document.head.title = 'Inder | Beta';

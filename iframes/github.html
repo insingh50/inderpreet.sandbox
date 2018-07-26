@@ -48,7 +48,7 @@
                 var lastRow = document.getElementById('gitstuff').lastChild;
 
                 var column = document.createElement("div");
-                column.className = 'col';
+                column.className = 'col-sm';
                 lastRow.appendChild(column);
 
                 var repoCard = document.createElement("div");
@@ -76,6 +76,7 @@
                 var cardLink = document.createElement("a");
                 // cardLink.className = ("btn-dark");
                 cardLink.href = repo.html_url;
+                cardLink.target = "_target";
                 cardLink.innerText = "See the repo";
                 cardBody.appendChild(cardLink);
 
